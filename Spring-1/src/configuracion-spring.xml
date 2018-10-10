@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+
+	<bean id="admin_bean" class="com.springframework.Administrador">
+		<constructor-arg name="id_codigo" value = "500"></constructor-arg>
+		<constructor-arg name="nombre" value = "Christian"></constructor-arg>
+		
+		<property name="id_codigo" value="44"></property>
+		<property name="nombre" value="Roley"></property>
+		
+<!-- 		INYECTANDO LA DEPENDENCIA -->
+<!-- 		<property name="direccion" ref="direccion_bean"></property> -->
+	</bean>
+	
+	<!-- PARA COMENTAR Y DESCOMENTAR EN BLOQUE USAR TECLA -> CNTRL + SHFT + C -->
+<!-- 	<bean id="direccion_bean" class="com.springframework.Direccion"> -->
+<!-- 		<constructor-arg name="calle" value="Santa Mary"></constructor-arg> -->
+<!-- 		<constructor-arg name="codigo_postal" value="Agustino-51"></constructor-arg> -->
+<!-- 		<property name="calle" value="Las lomas del Bosque"></property> -->
+<!-- 		<property name="codigo_postal" value="Lima-21"></property> -->
+<!-- 	</bean> -->
+	<context:component-scan base-package="com.springframework"></context:component-scan>
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+	<property name="url"
+		value="jdbc:mysql://localhost:3306/db_springframework">
+	</property>
+	<property name="username" value="root"></property>
+	<property name="password" value="soporte"></property>
+	</bean>
+</beans>
