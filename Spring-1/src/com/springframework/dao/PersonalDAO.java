@@ -48,6 +48,13 @@ public interface PersonalDAO {
 	public boolean darDebajaPersonal(int param_codigo);
 	
 	
+	/**
+	 * Metodo que retornara una array con el numero de filas afectadas para validar que 
+	 * se considere correcto si se logra ingresar todo el bloque de inserts a la base de datos.
+	 * 
+	 * @param personal
+	 * @return
+	 */
 	public int[] guardarTodos(List<Personal> personal) ;
 	
 }

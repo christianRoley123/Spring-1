@@ -130,10 +130,11 @@ public class PersonalDAOImpl implements PersonalDAO{
 	}
 
 	@Override
-	public void guardarTodos(List<Personal> personal) {
+	public int[] guardarTodos(List<Personal> personal) {
 		
 		SqlParameterSource[] listaArgs = SqlParameterSourceUtils.createBatch(personal.toArray());
-		jdbcTemplate.batchUpdate("INSERT INTO tbl_personal(nombre, cargo, fechaCreacion)values(:nombre, :cargo, :fechaCreacion)", listaArgs);
+		//batchUpdate es un conjunto de preparedStatements que funcionan para realizar querys en bloque.
+		return jdbcTemplate.batchUpdate("INSERT INTO tbl_personal(nombre, cargo, fechaCreacion)values(:nombre, :cargo, :fechaCreacion)", listaArgs);
 		
 	}
 
